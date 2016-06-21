@@ -119,14 +119,23 @@ class SoundcloudDownloader {
             this.runDownloads();
         }
     }
-    saveFavorite(track) {
+    saveFavorite(favorite) {
         // --- Add track to our favorites list if it doesn't already exists & it's streamable.
-        if(!this.tracks[this.userId][track.id] && track.kind === 'track' && track.streamable) {
-            this.tracks[this.userId][track.id] = {
-                id: track.id,
-                downloaded: false,
-                permalink: track.permalink
-            };
+        if(!this.tracks[this.userId][favorite.id] && favorite.streamable) {
+
+            if(favorite.kind === 'track') {
+                this.tracks[this.userId][favorite.id] = {
+                    id: favorite.id,
+                    downloaded: false,
+                    permalink: favorite.permalink
+                };
+            } else {
+                console.log('FAVORITE', favorite);
+            }
+            if(favorite.kind === 'playlist') {
+                // --- If it's a playlist, save each track in the playlist
+                favorite.tracks.forEach(track => this.saveFavorite(track));
+            }
         }
     }
 
