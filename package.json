@@ -1,0 +1,19 @@
+{
+  "name": "soundcloud-favorites",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "devDependencies": {
+    "express": "^4.14.0",
+    "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.1.0",
+    "lodash": "^4.13.1",
+    "node-soundcloud": "0.0.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
