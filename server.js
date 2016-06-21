@@ -16,7 +16,7 @@ Routes.initialize(app, controller);
 // --- Register routes
 Routes.register('/');
 Routes.register('/callback');
-
+Routes.register('/addUser');
 
 
 

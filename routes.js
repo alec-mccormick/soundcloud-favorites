@@ -24,6 +24,13 @@ var Routes = {
         this.controller.authorize(code);
 
         res.send('This is the callback page.');
+    },
+    '/addUser': function(req, res) {
+        var username = req.query.id;
+
+        this.controller.updateUserFavorites(username);
+
+        res.send(`Processing user: ${username}`);
     }
 };
 
